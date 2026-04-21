@@ -91,7 +91,7 @@ Register Targets
 
 # Select both EC2 instances
 
-Click Include as pending
+# Click Include as pending
 
 Create target group
 
@@ -99,7 +99,7 @@ Create target group
 
 Go to EC2 → Load Balancers → Create
 
-Type: Application Load Balancer
+# Type: Application Load Balancer
 
 Name: ap-lb
 
@@ -149,6 +149,7 @@ Traffic only comes through ALB
 
 
 # Step 8: Test Load Balancer
+
 Copy DNS name of ALB
 
 Paste in browser
