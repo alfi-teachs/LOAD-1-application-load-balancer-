@@ -94,3 +94,79 @@ Register Targets
 Click Include as pending
 
 Create target group
+
+# Step 6: Create Application Load Balancer
+
+Go to EC2 → Load Balancers → Create
+
+Type: Application Load Balancer
+
+Name: ap-lb
+
+Scheme: Internet-facing
+
+IP type: IPv4
+
+VPC: Default
+
+Availability Zones
+
+# Select at least 2 AZs
+
+# Must match your instance AZs
+
+Listener
+Protocol: HTTP
+Port: 80
+Target Group
+Select: tg1
+
+Keep other settings default and create.
+
+# Step 7: Configure Security Groups (Important Step)
+
+For Load Balancer Security Group 
+
+Allow:
+
+HTTP (Port 80) → Source: Anywhere (0.0.0.0/0)
+
+For EC2 Instance Security Group
+
+Remove HTTP access from Anywhere
+
+Add:
+
+HTTP (Port 80)
+
+Source: Load Balancer Security Group
+
+👉 This ensures:
+
+Instances are not directly accessible
+
+Traffic only comes through ALB
+
+
+# Step 8: Test Load Balancer
+Copy DNS name of ALB
+
+Paste in browser
+
+Refresh multiple times → You should see:
+
+Server 1
+
+Server 2 (alternating)
+
+Server 2 (alternating)
+
+# What This Really Means
+
+Your instances are now private behind ALB
+
+Users access only through Load Balancer DNS
+
+Traffic is distributed automatically
+
+Health checks ensure only healthy servers receive traffic
