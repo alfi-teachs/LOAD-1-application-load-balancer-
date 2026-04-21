@@ -49,3 +49,48 @@ Instance 2
 ```bash
 <h1>This is Server 2</h1>
 ```
+
+# Step 4: Test Using Public IP
+
+Copy each instance Public IP
+
+Paste in browser
+
+You should see:
+
+Server 1 page
+
+Server 2 page
+
+
+# Step 5: Create Target Group
+
+Go to EC2 → Target Groups → Create
+
+Name: tg1
+
+Target type: Instance
+
+Protocol: HTTP
+
+Port: 80
+
+IP version: IPv4
+
+VPC: Default
+
+Protocol version: HTTP1
+
+Health Check
+
+Protocol: HTTP
+
+Path: /
+
+Register Targets
+
+# Select both EC2 instances
+
+Click Include as pending
+
+Create target group
