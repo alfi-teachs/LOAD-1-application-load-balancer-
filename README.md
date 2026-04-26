@@ -11,6 +11,21 @@ Auto-assign Public IP: Enabled (only for initial setup)
 
 Security Group: Allow HTTP (80) and SSH (22)
 
+ADVANCED DETAIL
+
+USERDATA
+
+```bash
+
+#!/bin/bash
+
+sudo yum install httpd -y
+sudo systemctl start httpd
+sudo systemctl enable httpd
+echo "aws websit 1" >
+
+```
+
 # Step 2: Install Nginx on Both Instances
 
 Connect to each instance and run:
